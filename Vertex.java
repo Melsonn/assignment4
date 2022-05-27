@@ -2,22 +2,24 @@ package com.company;
 
 import java.util.Map;
 
-public class Vertex<T> {
-    private T data;
-    private Map<T, Double> adjacentVertices;
+public class Vertex<V> {
+    private V data;
+    private Map<Vertex<V>, Double> adjacentVertices;
 
-    public Vertex(T data) {
+    public Vertex(V data) {
+
         this.data = data;
     }
     public Vertex() {
     }
 
-    public void addAdjacentVertices(T destination, double weight){
+    public void addAdjacentVertices(Vertex<V> destination, double weight){
+
         adjacentVertices.put(destination, weight);
     }
 
 
-    public void add(T destination) {
+    public void add(Vertex<V> destination) {
         adjacentVertices.put(destination, null);
     }
 
@@ -26,20 +28,20 @@ public class Vertex<T> {
     }
 
 
-    public boolean contains(T connectedVertex) {
+    public boolean contains(V connectedVertex) {
         return adjacentVertices.containsKey(connectedVertex);
     }
 
 
-    public T getData(){
+    public V getData(){
         return data;
     }
 
-    public void setData(T data){
+    public void setData(V data){
         this.data = data;
     }
 
-    public T containsData(Vertex<T> vertex){
+    public V containsData(Vertex<V> vertex){
         return vertex.getData();
     }
 
